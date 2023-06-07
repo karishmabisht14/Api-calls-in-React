@@ -27,3 +27,16 @@ button:active {
   background-color: #460897;
   border-color: #460897;
 }
+
+.buttonload {
+  background-color: #230052;
+  border: none; 
+  color: white;
+  padding: 12px 24px;
+  font-size: 16px;
+}
+
+.fa {
+  margin-left: -12px;
+  margin-right: 8px;
+}
