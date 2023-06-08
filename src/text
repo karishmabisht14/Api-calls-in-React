@@ -1,0 +1,21 @@
+Tasks
+
+From Video 8
+
+Ans 1 - 4XX responses mean when we sent http request it always gives us a response status which is written in some code like 101, 204, 406 etc. It may be a bad request or success request. we can find out what type of response status we get by these codes. So 4XX is client error which means the request contains bad syntax or cannot be fulfilled.
+
+Some of them are -
+400(Bad request) - The server cannot or will not process the request due to an apparent client error (e.g., malformed request syntax, size too large, invalid request message framing, or deceptive request routing).
+404(Not Found) - The requested resource could not be found but may be available in the future. Subsequent requests by the client are permissible.
+405(Method Not Allowed) - A request method is not supported for the requested resource; for example, a GET request on a form that requires data to be presented via POST or a PUT request on a read-only resource.
+
+Ans 2 - Similarly 5XX responses mean that there is some problem with servers. Its a server error.
+
+Some of them are-
+500(Internal server error) - A generic error message, given when an unexpected condition was encountered and no more specific message is suitable.
+501(Not Implemented) - The server either does not recognize the request method, or it lacks the ability to fulfil the request. Usually this implies future availability (e.g., a new feature of a web-service API).
+503(Service Unavailable) - The server cannot handle the request (because it is overloaded or down for maintenance). Generally, this is a temporary state.
+
+Ans 3 - when we using the async and await we find any error using try catch method. We put all the code where we send the http request in the try block and after the end of try block then we write the catch block. Inside the catch block we handle the error. In try block thrown a error we can catch into the catch block where we handle the error and writing a message so that user know that there is some problem with the server.
+
+Ans 4 - When we throw an error we handle the error writing a message like something went wrong for the user to show the error. we handle the error in fetch using response.ok which is true when there is no error but false when there is error.
