@@ -2,6 +2,7 @@ import React, { useCallback, useEffect, useState } from "react";
 
 import MoviesList from "./components/MoviesList";
 import "./App.css";
+import MovieForm from "./components/MovieForm";
 
 function App() {
   const [movies, setMovies] = useState([]);
@@ -13,7 +14,7 @@ function App() {
     const id = setInterval(async () => {
       console.log("Retring in 5 seconds.....");
       setIsLoading(true);
-      const response = await fetch("https://swapi.dev/api/film/");
+      const response = await fetch("https://swapi.dev/api/films/");
       if (!response.ok) {
         clearInterval(id);        
         retryFetch();
@@ -36,7 +37,7 @@ function App() {
     setIsLoading(true);
     setError(null);
     try {
-      let response = await fetch("https://swapi.dev/api/film/");
+      let response = await fetch("https://swapi.dev/api/films/");
       if (!response.ok) {
         response =  retryFetch();
         throw new Error('Some went Wrong...Retrying');
@@ -65,6 +66,9 @@ function App() {
 
   return (
     <React.Fragment>
+      <section>
+        <MovieForm />
+      </section>
       <section>  
         <button onClick={fetchMoviesHandler}>Fetch Movies</button>
         <button onClick={cancelRequestHandler}>cancel request</button>
