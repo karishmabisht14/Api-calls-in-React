@@ -1,28 +1,28 @@
-import { useRef } from 'react';
-import classes from './MovieForm.module.css'
+import { useRef } from "react";
+import classes from "./MovieForm.module.css";
 
-const MovieForm = () => {
-    const titleRef = useRef('');
-    const openingTextRef = useRef('');
-    const releaseDateRef = useRef('');
+const MovieForm = (props) => {
+  const titleRef = useRef("");
+  const openingTextRef = useRef("");
+  const releaseDateRef = useRef("");
 
-    const submitHandler = (event) => {
-        event.preventDefault();
+  const submitHandler = (event) => {
+    event.preventDefault();
 
-        const movie = {
-            title: titleRef.current.value,
-            openingText: openingTextRef.current.value,
-            releaseDate: releaseDateRef.current.value
-        }
+    const movie = {
+      title: titleRef.current.value,
+      openingText: openingTextRef.current.value,
+      releaseDate: releaseDateRef.current.value,
+    };
 
-        console.log(movie);
-    }
+    props.onAddMovie(movie);
+  };
 
   return (
     <form onSubmit={submitHandler}>
       <div className={classes.control}>
         <label htmlFor="title">Title</label>
-        <input type="text" id="title" ref={titleRef}/>
+        <input type="text" id="title" ref={titleRef} />
       </div>
       <div className={classes.control}>
         <label htmlFor="opening-text">Opening Text</label>
@@ -30,7 +30,7 @@ const MovieForm = () => {
       </div>
       <div className={classes.control}>
         <label htmlFor="date">Release Date</label>
-        <input type="text" id="date" ref={releaseDateRef}/>
+        <input type="text" id="date" ref={releaseDateRef} />
       </div>
       <button>Add Movie</button>
     </form>
